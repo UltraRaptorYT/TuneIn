@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
         </div>
         {isClicked && (
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 z-10 bg-white relative">
             <a
               href="/"
               className="text-black block hover:bg-black hover:text-white rounded-xl p-2"

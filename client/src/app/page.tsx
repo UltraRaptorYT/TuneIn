@@ -22,7 +22,7 @@ const Page = () => {
           className="absolute w-60 top-10 sm:top-22 sm:w-64 left-0 -z-10 aspect-auto"
         />
         <div className="h-1/2 flex flex-col md:flex-row mt-12 md:mt-24 max-w-7xl mx-auto gap-x-8 md:justify-around">
-          <div className="flex flex-col space-y-5 w-1/2">
+          <div className="flex flex-col space-y-5 max-w-2xl md:pt-6">
             <div className="flex flex-col space-y-3" id="header">
               <div className="font-bold text-5xl">Tune-in:</div>
               <div className="text-5xl" id="elaboration">
