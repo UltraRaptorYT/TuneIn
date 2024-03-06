@@ -24,18 +24,17 @@ const Page = () => {
         <div className="h-1/2 flex flex-col md:flex-row mt-12 md:mt-24 max-w-7xl mx-auto gap-x-8 md:justify-around">
           <div className="flex flex-col space-y-5 max-w-2xl md:pt-6">
             <div className="flex flex-col space-y-3" id="header">
-              <div className="font-bold text-5xl">Tune-in:</div>
+              <div className="font-bold text-5xl">TuneIn:</div>
               <div className="text-5xl" id="elaboration">
                 Inspiring Creativity,
               </div>
               <div className="text-5xl">One Lyric at a Time</div>
             </div>
             <div className="text-xl">
-              Turn dry topics into unforgettable melodies with Tune-In, a
+              Turn dry topics into unforgettable melodies with TuneIn, a
               revolutionary platform designed to transform the way music is made
             </div>
             <div className="w-40">
-              {" "}
               <button
                 type="button"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full"

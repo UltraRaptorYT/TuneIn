@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 // Icon imports
 import { HiMenuAlt3 } from "react-icons/hi";
@@ -18,13 +19,23 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white h-[64px]">
+      <nav className="bg-white h-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <a href="/" className="text-black">
-                  Logo
+                <a
+                  href="/"
+                  className="text-black flex items-center justify-around gap-2 px-7"
+                >
+                  <Image
+                    src="/TuneIn.png"
+                    width={500}
+                    height={500}
+                    alt="TuneIn"
+                    className="h-12 aspect-auto w-full"
+                  />
+                  <span>TuneIn</span>
                 </a>
               </div>
             </div>
