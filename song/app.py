@@ -14,6 +14,8 @@ import os
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import random
+import requests
+from moviepy.editor import AudioFileClip
 
 load_dotenv()
 
@@ -94,7 +96,7 @@ def generateMusic():
             messageBox.send_keys("/chirp")
 
             print("/chirp")
-            
+
             time.sleep(2)
             messageBox.send_keys(Keys.TAB)
             time.sleep(1)
@@ -162,6 +164,20 @@ def generateMusic():
             time.sleep(1)
 
             driver.quit()
+
+            # MP4 to MP3
+            response = requests.get(finalVideoSrc)
+
+            audio_file_path = "./chirp.mp4"
+
+            with open(audio_file_path, 'wb') as f:
+                f.write(response.content)
+
+            video_clip = AudioFileClip(audio_file_path)
+            mp3_file_path = audio_file_path.replace(".mp4", ".mp3")
+            video_clip.write_audiofile(mp3_file_path)
+
+
             return {"musicURL": finalVideoSrc}
     else:
         return {"message": "Server is working"}
