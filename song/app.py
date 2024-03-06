@@ -16,6 +16,7 @@ from flask_cors import CORS, cross_origin
 import random
 import requests
 from moviepy.editor import AudioFileClip
+from supabase import create_client
 
 load_dotenv()
 
@@ -161,6 +162,13 @@ def generateMusic():
             finalVideo = random.choice(videoGeneratedArr)
             finalVideoSrc = finalVideo.get_attribute("src")
 
+            # Get Text
+            time.sleep(1)
+            articleDiv = generated.find_elements(By.TAG_NAME, "article")
+            print("Getting Lyrics")
+            print(articleDiv[0].text)
+            print("".join("".join(articleDiv[0].text.split("Style of Music")[:0]).split("Text")[1:]))
+
             time.sleep(1)
 
             driver.quit()
@@ -177,6 +185,14 @@ def generateMusic():
             mp3_file_path = audio_file_path.replace(".mp4", ".mp3")
             video_clip.write_audiofile(mp3_file_path)
 
+            # Upload to Supabase
+            supabase_url = os.environ['SUPABASE_URL']
+            supabase_key = os.environ.get("SUPABASE_KEY")
+            supabase = create_client(supabase_url, supabase_key)
+
+            data, count = supabase.table('tunein').insert({"genre": '*'})                                                        '}).execute()
+            res = supabase.storage.get_bucket("tunein")
+            print(data)
 
             return {"musicURL": finalVideoSrc}
     else:
