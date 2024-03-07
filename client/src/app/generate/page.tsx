@@ -10,7 +10,42 @@ import Dropdown from "../../components/Dropdown";
 import { Button } from "../../components/ui/button";
 
 const Page = () => {
-  // Hard coded data for now later will be fetched from the backend
+  // Dropdown options
+  const songGenres = [
+    { value: "pop", label: "Pop" },
+    { value: "rock", label: "Rock" },
+    { value: "hip_hop", label: "Hip-Hop" },
+    { value: "jazz", label: "Jazz" },
+    { value: "classical", label: "Classical" },
+    { value: "blues", label: "Blues" },
+    { value: "country", label: "Country" },
+    { value: "reggae", label: "Reggae" },
+    { value: "electronic", label: "Electronic" },
+    { value: "folk", label: "Folk" },
+    { value: "r_b", label: "R&B" },
+    { value: "metal", label: "Metal" },
+    { value: "indie", label: "Indie" },
+  ];
+
+  const songTopics = [
+    { value: "love", label: "Love" },
+    { value: "adventure", label: "Adventure" },
+    { value: "friendship", label: "Friendship" },
+    { value: "nature", label: "Nature" },
+    { value: "heartbreak", label: "Heartbreak" },
+    { value: "hope", label: "Hope" },
+    { value: "dreams", label: "Dreams" },
+    { value: "travel", label: "Travel" },
+    { value: "reflection", label: "Reflection" },
+    { value: "imagination", label: "Imagination" },
+    { value: "loss", label: "Loss" },
+    { value: "inspiration", label: "Inspiration" },
+    { value: "desire", label: "Desire" },
+    { value: "freedom", label: "Freedom" },
+    { value: "peace", label: "Peace" },
+    { value: "challenge", label: "Challenge" },
+    // Add more topics as needed
+  ];
   const frameworks = [
     {
       value: "next.js",
@@ -49,48 +84,48 @@ const Page = () => {
             className="flex flex-col aspect-video w-full bg-[#D9D9D9] rounded-xl"
             id="container"
           >
-            <div className='flex'>
+            <div className="flex">
               <div className="p-10 w-1/2" id="content">
                 <div className="font-semibold text-xl" id="title-header">
                   Customise Your Lyrics
                 </div>
                 <div className="flex flex-col space-y-10 mt-10">
                   <div className="flex flex-col">
-                    <label>Song Genre</label>
+                    <label className="text-md mb-1">Song Genre</label>
                     <Dropdown
-                      frameworks={frameworks}
+                      dropdownOptions={songGenres}
                       modalOpenStatus={open}
                       selectedValue={value}
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label>Song Topic</label>
+                    <label className="text-md mb-1">Song Topic</label>
                     <Dropdown
-                      frameworks={frameworks}
+                      dropdownOptions={songTopics}
                       modalOpenStatus={open}
                       selectedValue={value}
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label>Instruments</label>
+                    <label className="text-md mb-1">Instruments</label>
                     <Dropdown
-                      frameworks={frameworks}
+                      dropdownOptions={frameworks}
                       modalOpenStatus={open}
                       selectedValue={value}
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label>Cultural References</label>
+                    <label className="text-md mb-1">Cultural References</label>
                     <Dropdown
-                      frameworks={frameworks}
+                      dropdownOptions={frameworks}
                       modalOpenStatus={open}
                       selectedValue={value}
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label>Other Topic Prompts</label>
+                    <label className="text-md mb-1">Other Topic Prompts</label>
                     <Dropdown
-                      frameworks={frameworks}
+                      dropdownOptions={frameworks}
                       modalOpenStatus={open}
                       selectedValue={value}
                     />
@@ -104,13 +139,13 @@ const Page = () => {
                 ></div>
               </div>
             </div>
-            <div className='w-48 mx-auto'>
-              <button
-                type="button"
+            <div className="w-48 mx-auto">
+              <Button
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full"
+                variant="outline"
               >
-                Generate
-              </button>
+                Generate Lyrics
+              </Button>
             </div>
           </div>
         </div>

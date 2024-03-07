@@ -19,7 +19,14 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const Dropdown = ({ frameworks, modalOpenStatus, selectedValue }) => {
+interface DropdownProps {
+    // dropdownOptions: DropdownOption[];
+    dropdownOptions: any
+    modalOpenStatus: boolean;
+    selectedValue: string;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ dropdownOptions, modalOpenStatus, selectedValue }) => {
   const [open, setOpen] = useState<boolean>(modalOpenStatus);
   const [value, setValue] = useState(selectedValue);
 
@@ -34,7 +41,7 @@ const Dropdown = ({ frameworks, modalOpenStatus, selectedValue }) => {
             className="w-[300px] justify-between" // Adjusted width
           >
             {value
-              ? frameworks.find((framework) => framework.value === value)?.label
+              ? dropdownOptions.find((options) => options.value === value)?.label
               : "Select framework..."}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
@@ -50,10 +57,10 @@ const Dropdown = ({ frameworks, modalOpenStatus, selectedValue }) => {
             />
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup>
-              {frameworks.map((framework) => (
+              {dropdownOptions.map((options) => (
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  key={options.value}
+                  value={options.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue);
                     setOpen(false);
@@ -62,10 +69,10 @@ const Dropdown = ({ frameworks, modalOpenStatus, selectedValue }) => {
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      value === options.value ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {framework.label}
+                  {options.label}
                 </CommandItem>
               ))}
             </CommandGroup>

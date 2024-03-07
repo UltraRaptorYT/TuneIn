@@ -57,7 +57,7 @@ const Navbar = () => {
                     <span className="absolute inset-x-0 bottom-0 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
                   </a>
                   <a
-                    href="/"
+                    href="/history"
                     className="text-black relative px-7 py-1 inline-block group overflow-hidden"
                   >
                     History
