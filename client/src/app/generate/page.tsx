@@ -69,8 +69,22 @@ const Page = () => {
     },
   ];
 
+  // State variables
+  const [loading, setLoading] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
+
+  // Generate video function
+  const handleGenerateClick = () => {
+    setLoading(true);
+    setShowVideo(false);
+
+    setTimeout(() => {
+      setLoading(false);
+      setShowVideo(true);
+    }, 60000); // 60 seconds
+  };
 
   return (
     <>
@@ -134,9 +148,14 @@ const Page = () => {
               </div>
               <div className="p-10 w-1/2">
                 <div
-                  className="bg-white aspect-[1/1.1] w-full rounded-xl"
+                  className="flex mx-auto bg-white aspect-[1/1.1] w-full rounded-xl"
                   id="lyric display"
-                ></div>
+                >
+                  <video controls autoPlay muted>
+                    <source src="/video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
             </div>
             <div className="w-48 mx-auto">
@@ -144,7 +163,7 @@ const Page = () => {
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full"
                 variant="outline"
               >
-                Generate Lyrics
+                {loading ? "Loading..." : "Generate Lyrics"}
               </Button>
             </div>
           </div>
