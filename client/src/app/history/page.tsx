@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 // Importing components
@@ -55,33 +55,38 @@ console.log(supabaseKey);
 const data: Data[] = [
   {
     id: "m5gr84i9",
-    amount: 316,
-    status: "success",
-    email: "ken99@yahoo.com",
+    genre: "pop",
+    filecreated: "https://example.com/song1.mp4",
+    created_at: "10/11/2022",
+    lyrics: "The whole earth shakes...",
   },
   {
-    id: "3u1reuv4",
-    amount: 242,
-    status: "success",
-    email: "Abe45@gmail.com",
+    id: "k3zv72h2",
+    genre: "rock",
+    filecreated: "https://example.com/song2.mp4",
+    created_at: "11/15/2022",
+    lyrics: "I'm on the highway to hell...",
   },
   {
-    id: "derv1ws0",
-    amount: 837,
-    status: "processing",
-    email: "Monserrat44@gmail.com",
+    id: "n7bx36f5",
+    genre: "hip_hop",
+    filecreated: "https://example.com/song3.mp4",
+    created_at: "12/20/2022",
+    lyrics: "Money, cash, hoes...",
   },
   {
-    id: "5kma53ae",
-    amount: 874,
-    status: "success",
-    email: "Silas22@gmail.com",
+    id: "p9yd45t8",
+    genre: "jazz",
+    filecreated: "https://example.com/song4.mp4",
+    created_at: "01/25/2023",
+    lyrics: "Take five...",
   },
   {
-    id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@hotmail.com",
+    id: "w4fq23u1",
+    genre: "classical",
+    filecreated: "https://example.com/song5.mp4",
+    created_at: "02/28/2023",
+    lyrics: "Ode to Joy...",
   },
 ];
 
@@ -94,7 +99,6 @@ interface TuneInRecord {
 }
 
 // Create supabase client
-
 
 const columns: ColumnDef<TuneInRecord>[] = [
   {
